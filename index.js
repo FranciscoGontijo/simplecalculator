@@ -33,6 +33,51 @@ const creatingViewerText = (number) => {
     console.log(newText);
 };
 
+let firstNum = 0;
+let operator = '';
+
+const plusOperatorFunction = () => {
+    firstNum = +(viewerText.innerHTML);
+    viewerText.innerHTML = '';
+    operator = '+';
+}
+
+const minusOperatorFunction = () => {
+    firstNum = +(viewerText.innerHTML);
+    viewerText.innerHTML = '';
+    operator = '-';
+}
+
+const equalFunction = () => {
+    if (operator === '+') {
+        let sum = firstNum + +(viewerText.innerHTML)
+        viewerText.innerHTML = sum.toString();
+    }
+    if (operator === '-') {
+        let sum = firstNum - +(viewerText.innerHTML)
+        viewerText.innerHTML = sum.toString();
+    }
+    // if (operator === '/') {
+    //     let sum = firstNum / +(viewerText.innerHTML)
+    //     viewerText.innerHTML = sum.toString();
+    // }
+    // if (operator === '+') {
+    //     let sum = firstNum + +(viewerText.innerHTML)
+    //     viewerText.innerHTML = sum.toString();
+    // }
+}
+
+const clearViewerFunction = () => {
+    firstNum = 0;
+    operator = '';
+    viewerText.innerHTML = '';
+}
+
+plusButton.addEventListener('click', plusOperatorFunction);
+minusButton.addEventListener('click', minusOperatorFunction);
+equalButton.addEventListener('click', equalFunction);
+acButton.addEventListener('click', clearViewerFunction);
+
 
 
 
