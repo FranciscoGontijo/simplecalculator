@@ -5,10 +5,6 @@ const acButton = document.querySelector('#button-AC');
 const changeOperatorButton = document.querySelector('#button-change-operator');
 const percentButton = document.querySelector('#button-percent');
 const pointButton = document.querySelector('#button-point');
-const plusButton = document.querySelector('#button-plus');
-const minusButton = document.querySelector('#button-minus');
-const devideButton = document.querySelector('#button-devide');
-const multiplyButton = document.querySelector('#button-multiply');
 const equalButton = document.querySelector('#button-equal');
 
 // Select all number buttons and add functionality to change the viewer text
@@ -18,7 +14,12 @@ numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
         creatingViewerText(buttonValue);
     })
-})
+});
+
+const creatingViewerText = (number) => {
+    let newText = (viewerText.innerHTML + number).replace(/\s/g, '');
+    viewerText.innerHTML = newText;
+};
 
 // Viewer text
 const viewer = document.querySelector('.viewer');
@@ -27,54 +28,48 @@ viewerText.innerHTML = '';
 
 viewer.appendChild(viewerText);
 
-const creatingViewerText = (number) => {
-    let newText = (viewerText.innerHTML.replace(/\s/g, '') + number).replace(/\s/g, '');
-    viewerText.innerHTML = newText;
-    console.log(newText);
-};
+//Select all operator buttons
+const operatorButtons = document.querySelectorAll('.operator-button');
 
+//Add functionalities to operator buttons
 let firstNum = 0;
 let operator = '';
 
-const plusOperatorFunction = () => {
-    firstNum = +(viewerText.innerHTML);
-    viewerText.innerHTML = '';
-    operator = '+';
-}
+operatorButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        firstNum = +(viewerText.innerHTML);
+        viewerText.innerHTML = '';
+        operator = button.textContent.replace(/\s/g, '');
+    });
+});
 
-const minusOperatorFunction = () => {
-    firstNum = +(viewerText.innerHTML);
-    viewerText.innerHTML = '';
-    operator = '-';
-}
 
 const equalFunction = () => {
     if (operator === '+') {
-        let sum = firstNum + +(viewerText.innerHTML)
-        viewerText.innerHTML = sum.toString();
+        let result = firstNum + +(viewerText.innerHTML)
+        viewerText.innerHTML = result.toString();
     }
     if (operator === '-') {
-        let sum = firstNum - +(viewerText.innerHTML)
-        viewerText.innerHTML = sum.toString();
+        let result = firstNum - +(viewerText.innerHTML)
+        viewerText.innerHTML = result.toString();
     }
-    // if (operator === '/') {
-    //     let sum = firstNum / +(viewerText.innerHTML)
-    //     viewerText.innerHTML = sum.toString();
-    // }
-    // if (operator === '+') {
-    //     let sum = firstNum + +(viewerText.innerHTML)
-    //     viewerText.innerHTML = sum.toString();
-    // }
-}
+    if (operator === '/') {
+        let result = firstNum / +(viewerText.innerHTML)
+        viewerText.innerHTML = result.toString();
+    }
+    if (operator === 'x') {
+        let result = firstNum * +(viewerText.innerHTML)
+        viewerText.innerHTML = result.toString();
+    }
+};
 
 const clearViewerFunction = () => {
     firstNum = 0;
     operator = '';
     viewerText.innerHTML = '';
-}
+};
 
-plusButton.addEventListener('click', plusOperatorFunction);
-minusButton.addEventListener('click', minusOperatorFunction);
+//Add event listeners
 equalButton.addEventListener('click', equalFunction);
 acButton.addEventListener('click', clearViewerFunction);
 
