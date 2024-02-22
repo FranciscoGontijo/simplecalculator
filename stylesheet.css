@@ -1,19 +1,21 @@
 .calculator-container {
-    width: 250px;
+    width: 230px;
     border: 1px solid black;
-    padding: 10px;
+    padding: 20px;
     display: grid;
     grid-template-columns: 3fr 1fr;
-    
+    background-color: black;
+    border-radius: 25px;
+    font-family: sans-serif;
 }
 
 .viewer {
-    background-color: aqua;
-    height: 50px;
+    color: white;
+    height: 80px;
     grid-column-start: 1;
     grid-column-end: span 2;
-    margin-top: 30px;
     margin-bottom: 20px;
+    font-size: 30px;
 }
 
 .numbers-container {
@@ -32,14 +34,26 @@
     margin-top: 10px;
 }
 
+.top-button {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
 .number-button {
     cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
 }
 
 #button-number-0 {
     grid-column-start: 1;
     grid-column-end: span 2;
     width: 110px;
+}
+
+#button-point {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
 }
 
 .operators-container div {
@@ -51,4 +65,15 @@
     align-items: center;
     justify-content: center;
     margin-top: 10px;
+}
+
+.operator-button {
+    background-color: rgb(249, 153, 0);
+    color: white;
+    font-weight: 900;
+}
+
+#button-equal {
+    background-color: rgb(249, 153, 0);
+    color: white;
 }

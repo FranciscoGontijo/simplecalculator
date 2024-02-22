@@ -1,5 +1,3 @@
-
-
 //Select buttons
 const acButton = document.querySelector('#button-AC');
 const changeOperatorButton = document.querySelector('#button-change-operator');
@@ -9,11 +7,12 @@ const equalButton = document.querySelector('#button-equal');
 
 // Select all number buttons and add functionality to change the viewer text
 const numberButtons = document.querySelectorAll('.number-button');
+
 numberButtons.forEach((button) => {
     let buttonValue = button.textContent
     button.addEventListener('click', () => {
         creatingViewerText(buttonValue);
-    })
+    });
 });
 
 const creatingViewerText = (number) => {
@@ -69,9 +68,24 @@ const clearViewerFunction = () => {
     viewerText.innerHTML = '';
 };
 
+const changeSignalButton = () => {
+    //check if the signal is negative and change to positive, if not change to negative
+    let result = +(viewerText.innerHTML);
+    viewerText.innerHTML = result * (-1);
+}
+
+const usePercentButton = () => {
+    let result = +(viewerText.innerHTML);
+    viewerText.innerHTML = result/100;
+};
+
+
+
 //Add event listeners
 equalButton.addEventListener('click', equalFunction);
 acButton.addEventListener('click', clearViewerFunction);
+changeOperatorButton.addEventListener('click', changeSignalButton);
+percentButton.addEventListener('click', usePercentButton);
 
 
 
