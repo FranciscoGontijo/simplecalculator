@@ -36,6 +36,7 @@
 
 .top-button {
     background-color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
 }
 
 .number-button {
@@ -71,9 +72,11 @@
     background-color: rgb(249, 153, 0);
     color: white;
     font-weight: 900;
+    cursor: pointer;
 }
 
 #button-equal {
     background-color: rgb(249, 153, 0);
     color: white;
+    cursor: pointer;
 }

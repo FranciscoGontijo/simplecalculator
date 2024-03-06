@@ -16,8 +16,15 @@ numberButtons.forEach((button) => {
 });
 
 const creatingViewerText = (number) => {
-    let newText = (viewerText.innerHTML + number).replace(/\s/g, '');
-    viewerText.innerHTML = newText;
+        let newText = (viewerText.innerHTML + number).replace(/\s/g, '');
+        viewerText.innerHTML = newText;
+};
+
+const pointButtonFunction = () => {
+    if (!viewerText.textContent.includes('.')) {
+        let newText = (viewerText.innerHTML + '.').replace(/\s/g, '');
+        viewerText.innerHTML = newText;
+    }
 };
 
 // Viewer text
@@ -76,7 +83,7 @@ const changeSignalButton = () => {
 
 const usePercentButton = () => {
     let result = +(viewerText.innerHTML);
-    viewerText.innerHTML = result/100;
+    viewerText.innerHTML = result / 100;
 };
 
 
@@ -86,7 +93,7 @@ equalButton.addEventListener('click', equalFunction);
 acButton.addEventListener('click', clearViewerFunction);
 changeOperatorButton.addEventListener('click', changeSignalButton);
 percentButton.addEventListener('click', usePercentButton);
-
+pointButton.addEventListener('click', pointButtonFunction);
 
 
 
