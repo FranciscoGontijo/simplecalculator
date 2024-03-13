@@ -39,10 +39,18 @@
     cursor: pointer;
 }
 
+.top-button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
 .number-button {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.2);
     color: white;
+}
+
+.number-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 #button-number-0 {
@@ -55,6 +63,10 @@
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.2);
     color: white;
+}
+
+#button-point:hover {
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 .operators-container div {
@@ -75,8 +87,16 @@
     cursor: pointer;
 }
 
+.operator-button:hover {
+    background-color: rgb(255, 183, 67);
+}
+
 #button-equal {
     background-color: rgb(249, 153, 0);
     color: white;
     cursor: pointer;
+}
+
+#button-equal:hover {
+    background-color: rgb(255, 183, 67);
 }
