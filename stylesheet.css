@@ -85,6 +85,7 @@
     color: white;
     font-weight: 900;
     cursor: pointer;
+    font-size: 20px
 }
 
 .operator-button:hover {

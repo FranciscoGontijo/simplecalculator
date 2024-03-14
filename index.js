@@ -16,8 +16,8 @@ numberButtons.forEach((button) => {
 });
 
 const creatingViewerText = (number) => {
-        let newText = (viewerText.innerHTML + number).replace(/\s/g, '');
-        viewerText.innerHTML = newText;
+    let newText = (viewerText.innerHTML + number).replace(/\s/g, '');
+    viewerText.innerHTML = newText;
 };
 
 const pointButtonFunction = () => {
@@ -38,14 +38,29 @@ viewer.appendChild(viewerText);
 const operatorButtons = document.querySelectorAll('.operator-button');
 
 //Add functionalities to operator buttons
-let firstNum = 0;
+let firstNum = null;
 let operator = '';
 
 operatorButtons.forEach((button) => {
     button.addEventListener('click', () => {
+        
+        if (operator !== '' && operator !== button.textContent.replace(/\s/g, '')) {
+            operatorButtons.forEach((element) => {
+                if (element.textContent.replace(/\s/g, '') === operator) {
+                    element.style.backgroundColor = 'rgb(249, 153, 0)';
+                    element.style.color = 'white';
+                }
+            });
+        }
+
         firstNum = +(viewerText.innerHTML);
         viewerText.innerHTML = '';
+        
+        button.style.backgroundColor = 'white';
+        button.style.color = 'rgb(249, 153, 0)';
+        
         operator = button.textContent.replace(/\s/g, '');
+
     });
 });
 
@@ -54,23 +69,32 @@ const equalFunction = () => {
     if (operator === '+') {
         let result = firstNum + +(viewerText.innerHTML)
         viewerText.innerHTML = result.toString();
+        document.querySelector('#button-plus').style.backgroundColor = 'rgb(249, 153, 0)';
+        document.querySelector('#button-plus').style.color = 'white';
     }
     if (operator === '-') {
         let result = firstNum - +(viewerText.innerHTML)
         viewerText.innerHTML = result.toString();
+        document.querySelector('#button-minus').style.backgroundColor = 'rgb(249, 153, 0)';
+        document.querySelector('#button-minus').style.color = 'white';
     }
     if (operator === '/') {
         let result = firstNum / +(viewerText.innerHTML)
         viewerText.innerHTML = result.toString();
+        document.querySelector('#button-divide').style.backgroundColor = 'rgb(249, 153, 0)';
+        document.querySelector('#button-divide').style.color = 'white';
     }
     if (operator === 'x') {
         let result = firstNum * +(viewerText.innerHTML)
         viewerText.innerHTML = result.toString();
+        document.querySelector('#button-multiply').style.backgroundColor = 'rgb(249, 153, 0)';
+        document.querySelector('#button-multiply').style.color = 'white';
     }
+
 };
 
 const clearViewerFunction = () => {
-    firstNum = 0;
+    firstNum = null;
     operator = '';
     viewerText.innerHTML = '';
 };
@@ -94,6 +118,7 @@ acButton.addEventListener('click', clearViewerFunction);
 changeOperatorButton.addEventListener('click', changeSignalButton);
 percentButton.addEventListener('click', usePercentButton);
 pointButton.addEventListener('click', pointButtonFunction);
+
 
 
 
